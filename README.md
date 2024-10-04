@@ -34,7 +34,6 @@ Before using the CVE Check tool, the following must be installed on your system:
   - `requests`
   - `colorama`
   - `concurrent.futures`
-pip install requests colorama
 
 
 ### Usage
