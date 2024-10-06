@@ -1,15 +1,6 @@
 # CVE.CHECK - Vulnerability Information and Exploit Aggregator
 
 
-      ______  __      __  ______     _____ _    _ ______  ______ _    
-  / ____/  \ \    / / |  ____|   / ____| |  | |  ____||  ____| |  | |
- | |        \ \  / /  | |__     | |    | |__| | |__   | |__  | |__| |
- | |         \ \/ /   |  __|    | |    |  __  |  __|  |  __| |  __  |
- | |____      \  /    | |____   | |____| |  | | |____ | |____| |  | |
-  \_____|      \/     |______|   \_____|_|  |_|______||______|_|  |_|  
-
-
-
 
 # CVE.CHECK is a Python-based tool designed to fetch and aggregate critical information about vulnerabilities from multiple sources. The tool helps security analysts, researchers, and engineers quickly gather CVE information, exploit details, and other relevant reports in a single tool
 
@@ -34,45 +25,6 @@
 **HackerOne Reports:** Retrieves reports related to the CVE from HackerOne, indicating whether the vulnerability was used in bug bounty programs and what severity level it held.
 
 **User-Friendly Interface:** Clean and readable output with color-coded severity, summary, and exploit links for easier identification and prioritization.
-
-
-          +--------------------+
-          | User provides CVE ID|
-          +---------+----------+
-                    |
-                    v
-      +-------------+-------------+
-      |  Fetch CVE Details         | (from CIRCL or other API sources)
-      +-------------+-------------+
-                    |
-                    v
-+--------------------+------------------+
-| Fetch EPSS Score                       | (from EPSS API)
-+--------------------+------------------+
-                    |
-                    v
-+--------------------+------------------+
-| Fetch Exploit Data                      | (from GitHub, ExploitDB, PacketStorm)
-+--------------------+------------------+
-                    |
-                    v
-+--------------------+------------------+
-| Fetch CISA KEV Status                   | (Check if CVE is in CISA KEV list)
-+--------------------+------------------+
-                    |
-                    v
-+--------------------+------------------+
-| Fetch HackerOne Reports                | (If any reports are available)
-+--------------------+------------------+
-                    |
-                    v
-        +-----------+----------+
-        | Display Results       |
-        +----------------------+
-
-
-
-
 
 
 **To run CVE.CHECK, ensure that the following dependencies are installed
