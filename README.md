@@ -12,10 +12,9 @@ The tool is flexible and allows users to either search for a specific CVE by ID 
 
 It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
 
-                
-                            +-----------------------+
+                               +-----------------------+
                             |    User Input         |
-                            |      (CVE ID)         |
+                            |      (CVE ID)        |
                             +-----------------------+
                                       |
                                       v
@@ -27,32 +26,32 @@ It aggregates data from multiple sources, including exploit links, CVSS scores, 
 +------------------+    +---------------------+    +---------------------+
 |  Query NVD API   |    |  Query EPSS API    |    |  Query CISA API     |
 +------------------+    +---------------------+    +---------------------+
-          |                         |                       |
+          |                                                 |
           +-------------------------+                       |
-          |                                                 |
+                                                          |
           v                                                 |
-+-----------------------------+                             |
++-----------------------------+                            |
 |   Aggregate CVE Information  |                            |
-+-----------------------------+                             |
++-----------------------------+                            |
           |                                                 |
           v                                                 |
           +-------------------------------------+           |
-          |        Public Exploit Aggregation    |          |
+          |        Public Exploit Aggregation    |           |
           +-------------------------------------+           |
-          |                     |                           |
-          v                     v                           |
+          |                     |                     |      |
+          v                     v                     v      |
 +------------------+   +------------------+   +-----------------+
 |  Query GitHub    |   |  Query ExploitDB |   |  Query PacketStorm |
 +------------------+   +------------------+   +-----------------+
-          |                                           |
+          |                     |                     |
+          v                     v                     |
++------------------+   +------------------+           |
+| Query Nuclei     |   +------------------+           |
++------------------+                                   |
+                                                      |
           v                                           |
-+------------------+                                  |
-| Query Nuclei     |<---------------------------------+   
-+------------------+  
-          |
-          v
-+---------------------------------+
-|      Check HackerOne Reports    |
++---------------------------------+                   |
+|      Check HackerOne Reports    |<------------------+
 +---------------------------------+
 
 
