@@ -12,7 +12,9 @@ The tool is flexible and allows users to either search for a specific CVE by ID 
 
 It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
 
-                               +-----------------------+
+                      
+
+                            +-----------------------+
                             |    User Input         |
                             |      (CVE ID)        |
                             +-----------------------+
@@ -53,6 +55,47 @@ It aggregates data from multiple sources, including exploit links, CVSS scores, 
 +---------------------------------+                   |
 |      Check HackerOne Reports    |<------------------+
 +---------------------------------+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
