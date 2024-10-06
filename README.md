@@ -1,82 +1,89 @@
-# CVE_Check
-           ____     ______   ______  ______   ______  ______
-         .'    '.  |  ____| |  ____||  ____| |  ____||  ____|
-        :        : | |____  | |____ | |____  | |____ | |____
-        |        | |  ____| |____  ||____  | |____  ||  ____|
-        :        ; | |____   ____| | ____| |  ____| || |____
-         '.__.__.' |______| |______||______| |______||______|
+# CVE.CHECK - Vulnerability Information and Exploit Aggregator
 
-                            +-----------------------+
-                            |    User Input         |
-                            |      (CVE ID)        |
-                            +-----------------------+
-                                      |
-                                      v
-          +-------------------------------------------------+
-          |                CVE Information Retrieval        |
-          +-------------------------------------------------+
-          |                         |                       |
-          v                         v                       v
-+------------------+    +---------------------+    +---------------------+
-|  Query NVD API   |    |  Query EPSS API    |    |  Query CISA API     |
-+------------------+    +---------------------+    +---------------------+
-          |                         |                       |
-          +-------------------------+                       |
-          |                                                 |
-          v                                                 |
-+-----------------------------+                            |
-|   Aggregate CVE Information  |                            |
-+-----------------------------+                            |
-          |                                                 |
-          v                                                 |
-          +-------------------------------------+           |
-          |        Public Exploit Aggregation    |           |
-          +-------------------------------------+           |
-          |                     |                     |      |
-          v                     v                     v      |
-+------------------+   +------------------+   +-----------------+
-|  Query GitHub    |   |  Query ExploitDB |   |  Query VulnCheck |
-+------------------+   +------------------+   +-----------------+
-          |                     |                     |
-          v                     v                     |
-+------------------+   +------------------+           |
-| Query PacketStorm |   |  Query Nuclei   |<----------+
-+------------------+   +------------------+
-          |
-          v
-+---------------------------------+
-|   Check HackerOne Reports       |
-+---------------------------------+
-          |
-          v
-+---------------------------------+
-|      AI-Powered Risk Assessment |
-+---------------------------------+
-          |
-          v
-+---------------------------------+
-|   Batch Processing & Exporting   |
-+---------------------------------+
 
+      ______  __      __  ______     _____ _    _ ______  ______ _    _ 
+  / ____/  \ \    / / |  ____|   / ____| |  | |  ____||  ____| |  | |
+ | |        \ \  / /  | |__     | |    | |__| | |__   | |__  | |__| |
+ | |         \ \/ /   |  __|    | |    |  __  |  __|  |  __| |  __  |
+ | |____      \  /    | |____   | |____| |  | | |____ | |____| |  | |
+  \_____|      \/     |______|   \_____|_|  |_|______||______|_|  |_|  
+                                                                      
 
 
          
 
-CVE Check Tool is an advanced utility designed to search for and display detailed information about CVEs (Common Vulnerabilities and Exposures) across multiple trusted sources like NVD, CIRCL, Vulners, and EPSS. 
+# CVE.CHECK is a Python-based tool designed to fetch and aggregate critical information about vulnerabilities from multiple sources. The tool helps security analysts, researchers, and engineers quickly gather CVE information, exploit details, and other relevant reports in a single tool
 
-The tool is flexible and allows users to either search for a specific CVE by ID or search for vulnerabilities associated with a particular product (e.g., Apache Tomcat or Cisco XE). 
+# It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
 
-It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
+## 🛡️Features:
 
-### Requirements
-Before using the CVE Check tool, the following must be installed on your system:
+**CVE Information Retrieval:** Retrieves CVE details such as descriptions, CVSS score, severity, and more from the CIRCL API and other sources.
 
-### Requirements
-- **Python 3.x**: This tool is built using Python 3.x.
+**EPSS Integration:** Provides exploit prediction scoring from the Exploit Prediction Scoring System (EPSS) API. This gives insights into the likelihood of exploitation, helping prioritize vulnerabilities.
+
+**Public Exploits Aggregation:** Gathers publicly available proof-of-concept (PoC) exploits from multiple sources like:
+
+**GitHub:** Fetches PoC repositories related to the CVE.
+
+**ExploitDB:** Fetches exploit information from the ExploitDB database.
+
+**Packet Storm:** Fetches exploit information from the Packet Storm database.
+
+**CISA KEV:** Shows if the CVE has been listed in the Known Exploited Vulnerabilities (KEV) list by CISA. If listed, it provides direct links to CISA references.
+
+**HackerOne Reports:** Retrieves reports related to the CVE from HackerOne, indicating whether the vulnerability was used in bug bounty programs and what severity level it held.
+
+**User-Friendly Interface:** Clean and readable output with color-coded severity, summary, and exploit links for easier identification and prioritization.
+
+
+          +--------------------+
+          | User provides CVE ID|
+          +---------+----------+
+                    |
+                    v
+      +-------------+-------------+
+      |  Fetch CVE Details         | (from CIRCL or other API sources)
+      +-------------+-------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch EPSS Score                       | (from EPSS API)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch Exploit Data                      | (from GitHub, ExploitDB, PacketStorm)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch CISA KEV Status                   | (Check if CVE is in CISA KEV list)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch HackerOne Reports                | (If any reports are available)
++--------------------+------------------+
+                    |
+                    v
+        +-----------+----------+
+        | Display Results       |
+        +----------------------+
+
+
+
+**To run CVE.CHECK, ensure that the following dependencies are installed
+**
+
+## Prerequisites:
+Python 3.x: Make sure you have Python 3.6+ installed.
+PIP: Ensure that Python's package manager, pip, is installed.
+
 - **Dependencies**:
-  - `requests`
-  - `colorama`
-  - `concurrent.futures`
+requests: For making HTTP API requests.
+colorama: For colorizing terminal output.
+argparse: For handling command-line arguments.
 
 
 ### Usage
@@ -85,7 +92,9 @@ Before using the CVE Check tool, the following must be installed on your system:
 
 python3 CVE.py CVE-xxxx-xxxx
 
-2-Search by Product Name: You can search by the product name to retrieve vulnerabilities associated with that product.
+
+
+## TODO: 2-Search by Product Name: You can search by the product name to retrieve vulnerabilities associated with that product.
 
 python3 CVE.py -p "product"
 
