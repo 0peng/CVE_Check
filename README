@@ -1,0 +1,76 @@
+   ______  __      __  ______     _____ _    _ ______  ______ _    _ 
+  / ____/  \ \    / / |  ____|   / ____| |  | |  ____||  ____| |  | |
+ | |        \ \  / /  | |__     | |    | |__| | |__   | |__  | |__| |
+ | |         \ \/ /   |  __|    | |    |  __  |  __|  |  __| |  __  |
+ | |____      \  /    | |____   | |____| |  | | |____ | |____| |  | |
+  \_____|      \/     |______|   \_____|_|  |_|______||______|_|  |_|  
+
+
+
+          +--------------------+
+          | User provides CVE ID|
+          +---------+----------+
+                    |
+                    v
+      +-------------+-------------+
+      |  Fetch CVE Details         | (from CIRCL or other API sources)
+      +-------------+-------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch EPSS Score                       | (from EPSS API)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch Exploit Data                      | (from GitHub, ExploitDB, PacketStorm)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch CISA KEV Status                   | (Check if CVE is in CISA KEV list)
++--------------------+------------------+
+                    |
+                    v
++--------------------+------------------+
+| Fetch HackerOne Reports                | (If any reports are available)
++--------------------+------------------+
+                    |
+                    v
+        +-----------+----------+
+        | Display Results       |
+        +----------------------+
+
+
+
+
+
+
+
+                                             # CVE.CHECK - Vulnerability Aggregator
+
+CVE.CHECK is a tool designed to retrieve and aggregate vulnerability information from various sources such as CIRCL, EPSS, GitHub, ExploitDB, and more. The goal of the tool is to help analysts quickly gather details about CVEs, public exploits, and severity to prioritize mitigation.
+
+## Features
+- CVE Information Retrieval (from CIRCL, CISA KEV, etc.)
+- EPSS Exploit Prediction Scoring
+- Public Exploits Aggregation (GitHub, ExploitDB, Packet Storm)
+- CISA KEV Listing
+- HackerOne Reports
+
+## Requirements
+- Python 3.6+
+- `requests`, `colorama`, `argparse`
+
+## Installation
+Clone the repository:
+```bash
+git clone https://github.com/yourusername/cve-check.git
+cd cve-check
+
+pip install -r requirements.txt
+
+
+                                             
+
+                                             
