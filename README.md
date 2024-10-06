@@ -6,14 +6,6 @@
         :        ; | |____   ____| | ____| |  ____| || |____
          '.__.__.' |______| |______||______| |______||______|
 
-CVE Check Tool is an advanced utility designed to search for and display detailed information about CVEs (Common Vulnerabilities and Exposures) across multiple trusted sources like NVD, CIRCL, Vulners, and EPSS. 
-
-The tool is flexible and allows users to either search for a specific CVE by ID or search for vulnerabilities associated with a particular product (e.g., Apache Tomcat or Cisco XE). 
-
-It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
-
-                      
-
                             +-----------------------+
                             |    User Input         |
                             |      (CVE ID)        |
@@ -28,9 +20,9 @@ It aggregates data from multiple sources, including exploit links, CVSS scores, 
 +------------------+    +---------------------+    +---------------------+
 |  Query NVD API   |    |  Query EPSS API    |    |  Query CISA API     |
 +------------------+    +---------------------+    +---------------------+
-          |                                                 |
+          |                         |                       |
           +-------------------------+                       |
-                                                          |
+          |                                                 |
           v                                                 |
 +-----------------------------+                            |
 |   Aggregate CVE Information  |                            |
@@ -43,65 +35,38 @@ It aggregates data from multiple sources, including exploit links, CVSS scores, 
           |                     |                     |      |
           v                     v                     v      |
 +------------------+   +------------------+   +-----------------+
-|  Query GitHub    |   |  Query ExploitDB |   |  Query PacketStorm |
+|  Query GitHub    |   |  Query ExploitDB |   |  Query VulnCheck |
 +------------------+   +------------------+   +-----------------+
           |                     |                     |
           v                     v                     |
 +------------------+   +------------------+           |
-| Query Nuclei     |   +------------------+           |
-+------------------+                                   |
-                                                      |
-          v                                           |
-+---------------------------------+                   |
-|      Check HackerOne Reports    |<------------------+
+| Query PacketStorm |   |  Query Nuclei   |<----------+
++------------------+   +------------------+
+          |
+          v
++---------------------------------+
+|   Check HackerOne Reports       |
++---------------------------------+
+          |
+          v
++---------------------------------+
+|      AI-Powered Risk Assessment |
++---------------------------------+
+          |
+          v
++---------------------------------+
+|   Batch Processing & Exporting   |
 +---------------------------------+
 
 
 
+         
 
+CVE Check Tool is an advanced utility designed to search for and display detailed information about CVEs (Common Vulnerabilities and Exposures) across multiple trusted sources like NVD, CIRCL, Vulners, and EPSS. 
 
+The tool is flexible and allows users to either search for a specific CVE by ID or search for vulnerabilities associated with a particular product (e.g., Apache Tomcat or Cisco XE). 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
 
 ### Requirements
 Before using the CVE Check tool, the following must be installed on your system:
