@@ -7,7 +7,7 @@
 is a Python-based tool designed to fetch and aggregate critical information about vulnerabilities from multiple sources. The tool helps security analysts, researchers, and engineers quickly gather CVE information, exploit details, and other relevant reports in a single tool.
 
 
-# It aggregates data from multiple sources, including exploit links, CVSS scores, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
+# It aggregates data from multiple sources, including exploit links, CVSS scores, CVEID, vulnerability summaries, publication dates, and proof of concept (PoC) details (if available).
 
 
 
